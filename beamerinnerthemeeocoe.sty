@@ -1,0 +1,45 @@
+\mode<presentation>
+
+% Title page
+\defbeamertemplate*{title page}{eocoe}[1][]
+{
+	% Use vfill to position title and logos
+	\begin{columns}
+	\begin{column}{0.95\columnwidth}
+		\vbox to .9\textheight{%
+		\vfill
+		
+		% Title in the center
+		\begin{flushleft}
+		\usebeamerfont{title}\usebeamercolor[fg]{title}{\inserttitle}\par
+		\usebeamerfont{subtitle}\usebeamercolor[fg]{title}{\insertsubtitle}\par
+		\end{flushleft}
+		\vfill
+		\begin{flushleft}
+		\usebeamerfont{author}\usebeamercolor[fg]{author}{\insertauthor}\par
+		\usebeamerfont{institute}\usebeamercolor[fg]{author}{\insertinstitute}\par
+		\usebeamerfont{institute}\usebeamercolor[fg]{author}{\insertemail}\par
+		\usebeamerfont{institute}\usebeamercolor[fg]{author}{\insertweb}\par
+		\end{flushleft}
+		\smallskip
+		\begin{flushleft}
+		\usebeamerfont{date}\usebeamercolor[fg]{date}{\insertdate}\par
+		\end{flushleft}
+		
+		% Space between title and logos
+		\vfill		
+	
+		\includegraphics[height=1cm]{assets/eocoe-logo} % EoCoE logo
+		\includegraphics[height=1cm]{assets/eurohpc-logo} % EuroHPC logo
+		\includegraphics[height=1cm]{assets/eufunding-logo} % EU funding logo
+		}
+	\end{column}
+	\begin{column}{0.05\columnwidth}
+		\includegraphics[height=9cm]{assets/verticalbar}
+	\end{column}
+	\end{columns}
+	\addtocounter{framenumber}{-1}
+
+}
+\mode
+<all>

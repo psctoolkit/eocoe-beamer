@@ -1,0 +1,27 @@
+\mode<presentation>
+
+\setbeamertemplate{headline}{%
+	\ifdefined\insertauthor
+	\begin{tikzpicture}[remember picture, overlay]
+		% Place the EoCoE logo on the right
+		\node[anchor=north east, xshift=-0.2cm, yshift=-0.1cm] at (current page.north east) {%
+			\includegraphics[height=1.1cm]{assets/eocoe-logo} % Replace with actual path
+		};
+		
+		% Draw horizontal bar below the title and logo
+		\node[anchor=north, yshift=-1.5cm] at (current page.north) {%
+			\includegraphics[height=0.1cm,width=1.1\columnwidth]{assets/horizontalbar} % Replace with actual path
+		};
+	\end{tikzpicture}
+	\fi
+}
+% Footer with slide number on the bottom right
+\setbeamertemplate{footline}{%
+	\begin{beamercolorbox}[wd=\paperwidth, sep=1em]{footlinecolor}
+		\hfill \insertframenumber/\inserttotalframenumber
+	\end{beamercolorbox}
+}
+
+
+\mode
+<all>

@@ -1,0 +1,85 @@
+\mode<presentation>
+
+% Requirement
+\RequirePackage{tikz}
+\RequirePackage{fontawesome5}
+\RequirePackage{hyperref}
+\RequirePackage{booktabs}
+\RequirePackage{colortbl}
+
+% Settings
+\useinnertheme{eocoe}
+\useoutertheme{eocoe}
+\usecolortheme{eocoe}
+
+\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{blocks}[rounded][shadow=true]  
+
+% Auxiliary commands
+\newcommand{\email}[1]{\def\insertemail{\faEnvelope\,\href{mailto:#1}{#1}}}
+\newcommand{\web}[1]{\def\insertweb{\faLink\,\href{https://#1}{#1}}}
+
+% Section page
+\AtBeginSection[]{
+	\begin{frame}[plain]
+		
+			\begin{columns}
+			\begin{column}{0.95\columnwidth}
+				\vbox to .9\textheight{%
+					\vfill
+					
+					\tableofcontents[currentsection]
+					
+					\vfill
+				}
+			\end{column}
+			\begin{column}{0.05\columnwidth}
+				\includegraphics[height=9cm]{assets/verticalbar}
+			\end{column}
+		\end{columns}
+		\addtocounter{framenumber}{-1}
+	\end{frame}
+}
+
+% Standout slide
+\newcommand{\backmatter}[1][]{
+	\begingroup
+	\begin{frame}[c,plain]
+		\addtocounter{framenumber}{-1}
+		\begin{tikzpicture}[remember picture, overlay]		
+			% Draw horizontal bar
+			\node[anchor=north, yshift=-1cm] at (current page.north) {%
+				\includegraphics[height=0.1cm,width=1.1\columnwidth]{assets/horizontalbar} % Replace with actual path
+			};
+		\end{tikzpicture}
+		\vfill
+		\centering
+		\begin{minipage}{\textwidth}
+			\usebeamercolor[fg]{normal text}
+			\centering
+			\ifstrequal{#1}{notitle}{}{
+				\Huge \inserttitle \par
+				\vspace{5mm}
+			}
+			\Large \textsl{Thank you for listening! \\ Any questions?}
+		\end{minipage}
+		% Space between title and logos
+		\vfill		
+		
+		\includegraphics[height=1cm]{assets/eocoe-logo} % EoCoE logo
+		\includegraphics[height=1cm]{assets/eurohpc-logo} % EuroHPC logo
+		\includegraphics[height=1cm]{assets/eufunding-logo} % EU funding logo
+		
+		\vfill
+		
+		\begin{tikzpicture}[remember picture, overlay]		
+			% Draw horizontal bar
+			\node[anchor=north, yshift=+1cm] at (current page.south) {%
+				\includegraphics[height=0.1cm,width=1.1\columnwidth]{assets/horizontalbar} % Replace with actual path
+			};
+		\end{tikzpicture}
+	\end{frame}
+	\endgroup
+}
+
+\mode<all>
